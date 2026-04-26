@@ -20,3 +20,17 @@ def bfs(graph, start, target):
                 queue.append(new_path)
 
     return []
+    
+    def dfs(graph, start):
+    visited = set()
+
+    def explore(node):
+        if node in visited:
+            return
+        visited.add(node)
+
+        for neighbor in graph.get(node, []):
+            explore(neighbor)
+
+    explore(start)
+    return visited
